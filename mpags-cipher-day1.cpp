@@ -1,74 +1,76 @@
 #include <iostream>
 #include <string>
 
-int main()
+int main(int argc, char* argv[])
 {
 char in_char('x');
-std::string InputString{"test"};
+std::string InputString{"test123."};
 std::string OutputString;
 char TempChar;
 
+std::cout << "Input arguments were:" << "\n";
 
-//while(std::cin >> in_char)
-//{
-	// Loop until the user presses enter then Ctrl+D
-//	
-//}
+for (int i = 0; i<argc;++i)
+{
+std::cout << argv[i] << "\n";
+}
+
 for(char& c : InputString)
 {
 
-std::cout << c  << "\n";
-
-if (isalnum(c)== true)
+if (isalnum(c)!= 0)
 {
-	char temp{c};
-	std::cout << temp  << "\n";
 
-	if (isdigit(c) == true)
+	if (isdigit(c) != 0)
 	{
 	// convert numbers here
 	switch(c)
 	{
-		case 0:
-			OutputString = OutputString + ZERO;
+		case '0':
+			OutputString += "ZERO";
 			break;
-		case 1:
-			OutputString = OutputString + ONE;
+		case '1':
+			OutputString += "ONE";
 			break;
-		case 2:
-			OutputString = OutputString + TWO;
+		case '2':
+			OutputString += "TWO";
 			break;
-		case 3:
-			OutputString = OutputString + THREE;
+		case '3':
+
+			OutputString += "THREE";
 			break;
-		case 4:
-			OutputString = OutputString + FOUR;
+		case '4':
+			OutputString += "FOUR";
 			break;
-		case 5: 
-			OutputString = OutputString + FIVE;
+		case '5': 
+			OutputString += "FIVE";
 			break;
-		case 6:
-			OutputString = OutputString + SIX;
+		case '6':
+			OutputString += "SIX";
 			break;
-		case 7:
-			OutputString = OutputString + SEVEN;
+		case '7':
+			OutputString += "SEVEN";
 			break;
-		case 8:
-			OutputString = OutputString + EIGHT;
+		case '8':
+			OutputString += "EIGHT";
 			break;
 		default:
-			OutputString = OutputString + NINE;
-			break
+			 OutputString += "NINE";
+			break;
 	}
-	}
+}	
 	else
 	{
 	//uppercase here
+	OutputString += toupper(c);
 	}
 
 
 
+}
+}
+//prints final output
+std::cout << "Output:"  << std::endl;
+std::cout << OutputString  << std::endl;
+}
 
-}
-}
-}
