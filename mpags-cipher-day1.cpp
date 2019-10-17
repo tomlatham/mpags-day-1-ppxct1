@@ -1,18 +1,24 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 int main(int argc, char* argv[])
 {
-char in_char('x');
 std::string InputString{"test123."};
 std::string OutputString;
-char TempChar;
+
+// Convert the command-line arguments into a more easily usable form
+const std::vector<std::string> cmdLineArgs {argv, argv+argc};
+
+// Add a typedef that assigns another name for the given type for clarity
+typedef std::vector<std::string>::size_type size_type;
+const size_type nCmdLineArgs {cmdLineArgs.size()};
 
 std::cout << "Input arguments were:" << "\n";
 
-for (int i = 0; i<argc;++i)
+for (size_type i {0}; i<nCmdLineArgs; ++i)
 {
-std::cout << argv[i] << "\n";
+std::cout << cmdLineArgs[i] << "\n";
 }
 
 for(char& c : InputString)
@@ -36,7 +42,6 @@ if (isalnum(c)!= 0)
 			OutputString += "TWO";
 			break;
 		case '3':
-
 			OutputString += "THREE";
 			break;
 		case '4':
@@ -55,7 +60,7 @@ if (isalnum(c)!= 0)
 			OutputString += "EIGHT";
 			break;
 		default:
-			 OutputString += "NINE";
+			OutputString += "NINE";
 			break;
 	}
 }	
